@@ -1,5 +1,5 @@
 
 export interface MessageItem {
     content: string;
-    expireTime: number;
+    expire_time: number;
 }
