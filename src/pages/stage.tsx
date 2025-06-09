@@ -34,14 +34,12 @@ export const Stage = () => {
   }, []);
 
   return (
-    <Container>
+    <Container fluid={true}>
       <Row>
-        <Col></Col>
-        <Col xs={5}>
+        <Col xs={12}>
         <TicketGroup tickets={tickets}></TicketGroup>
         <Messages messages={messages}></Messages>
         </Col>
-        <Col></Col>
       </Row>
     </Container>
   );

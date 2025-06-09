@@ -9,7 +9,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/stage" element={<Stage />} />
-        <Route path="/" element={<Backstage />} />
+        <Route path="/static" element={<Backstage />} />
       </Routes>
     </BrowserRouter>
   );
