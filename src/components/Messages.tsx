@@ -24,7 +24,9 @@ export function Messages(props: MessagesProps) {
                             }
 
                         }variant={msg.content.startsWith("inf ") ? "success" : 'danger'}>
-                                &nbsp;{msg.content.startsWith("inf ") ? "✅" : '❌'} &nbsp;{msg.content.substring(4)}
+                                <div style={{ fontSize: "12px" }}>
+                                    &nbsp;{msg.content.startsWith("inf ") ? "✅" : '❌'} &nbsp;{msg.content.substring(4)}
+                                </div>
                         </ListGroup.Item>
                     )
                 )

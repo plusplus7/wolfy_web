@@ -1,11 +1,9 @@
-import { Col, Container, Dropdown, DropdownButton, Form, InputGroup, ListGroup, Nav, Navbar, NavDropdown, Row, Spinner, Tab } from 'react-bootstrap';
+import { Col, Container, Dropdown, DropdownButton, Form, InputGroup, Row, Tab } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from 'react';
 import { api } from '../services/api';
 import { TicketGroup } from '../components/TicketGroup';
 import { Messages} from '../components/Messages';
-import {SysInfo} from '../models/SysInfo';
-import { StartUp } from '../components/Startup';
 import { WolfyNavbar } from '../components/Navbar';
 
 
@@ -14,17 +12,6 @@ export const Backstage = () => {
     const [messages, setMessages] = useState([]);
     const [action, setAction] = useState("点歌");
     const [command, setCommand] = useState("");
-    const [sysInfo, setSysInfo] = useState({} as SysInfo);
-    if (sysInfo.app_id === undefined || sysInfo.app_id === "") {
-        try {
-            api.sysInfo().then((meta) => {
-            console.log(meta)
-                setSysInfo(meta);
-            });
-        } catch (error) {
-            alert(error);
-        }
-    }
 
     const refresh = async () => {
         try {
@@ -50,14 +37,6 @@ export const Backstage = () => {
         };
     }, []);
 
-    if (sysInfo && (sysInfo.anchor_code === "" || sysInfo.service?.["bilibili"]["err"] !== '')) {
-        return <StartUp
-            sysInfo={sysInfo}
-            onSetSysInfo={(resp) => { console.log(resp); setSysInfo({} as SysInfo) }}
-            content={sysInfo.service?.["bilibili"]["err"]}
-        >
-        </StartUp>
-    }
     return (
         <div>
             <WolfyNavbar></WolfyNavbar>

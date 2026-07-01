@@ -7,8 +7,11 @@ const category_values_map: Record<string, any>= {
     '东方Project': { color: {backgroundColor: "#ad59ee"}, name: `东方`, },
     '其他游戏': { color: {backgroundColor: "#4be070"}, name: `其他游戏`, },
     '音击/中二节奏': { color: {backgroundColor: "#3584fe"}, name: `音击/中二`, },
+    '宴会場': { color: {backgroundColor: "#e54447ff"}, name: `宴会場`, },
+
 }
 const track_tag_color_map: Record<string, React.CSSProperties>= {
+    "宴": {backgroundColor: "#e92ca4ff"},
     "std": {backgroundColor: "#3584fe"},
     "dx":  {backgroundColor: "#ffffff", color: "#FFBA84"},
 }
@@ -25,12 +28,12 @@ export function CoverInfoStyle(coverInfo: string): React.CSSProperties{
 }
 
 export function SongInfoStyle(songInfo: string): React.CSSProperties{
-    return level_color_map[songInfo.split("_")[0]];
+    return level_color_map[songInfo.split("_")[1]];
 }
 
 export function SongInfoValue(songInfo: string): string{
     var split = songInfo.split("_");
-    return split[split.length-1];
+    return split[0];
 }
 
 
